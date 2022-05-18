@@ -1,0 +1,327 @@
+{% extends "sidenav.html" %}
+
+{% block content %}
+
+{% for item in values %}
+<html lang="en">
+  <head>
+    <meta name="description" content="Trang web quản lý KTX trường PTIT" />
+    <title>Đăng ký nội trú - PTIT Admin</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Main CSS-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='FileCss/dknoitru.css')}}" />
+
+    <!-- Font-icon css-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    
+	<style>.tile .control-disabled {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background-color: rgba(255, 255, 255, 0.36);
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      color: rgb(210, 207, 207);
+      border-radius: 3px;
+      z-index: 999;
+      }
+	  .form-control::placeholder {
+            color: #2b2727;
+            opacity: 1;
+			font-size: 100%;
+			font-weight: bold;
+        }
+    </style>
+  </head>
+  <body class="app sidebar-mini pace-done sidenav-toggled">
+    <form method="POST" action="{{url_for('auth.dknoitru')}}">
+      <div class="pace pace-inactive">
+        <div
+          class="pace-progress"
+          data-progress-text="100%"
+          data-progress="99"
+          style="transform: translate3d(100%, 0px, 0px)"
+        >
+          <div class="pace-progress-inner"></div>
+        </div>
+        <div class="pace-activity"></div>
+      </div>
+      <div id="overlay">
+        <div class="cv-spinner"><span class="spinner"></span></div>
+      </div>
+
+      <main class="app-content">
+        <div class="row"><div class="col-md-12"></div></div>
+        <div class="app-title">
+          <div>
+            <h1><i class="fa fa-edit"></i> Đăng ký nội trú PTIT</h1>
+            <p>Đơn đăng ký nội trú dành cho sinh viên</p>
+          </div>
+          <ul class="app-breadcrumb breadcrumb">
+            <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+            <li class="breadcrumb-item">Biểu mẫu</li>
+            <li class="breadcrumb-item"><a href="#">Đăng ký nội trú</a></li>
+          </ul>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="tile">
+              <div class="control-disabled"></div>
+              <h3 class="mb-3 line-head">Biểu mẫu đăng ký nội trú</h3>
+              <div class="tile-body">
+                  <h4>Thông tin sinh viên</h4>
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="control-label" for="studentId"
+                          >Mã số sinh viên</label
+                        ><input
+                          class="form-control col-md-9"
+                          id="studentId"
+                          name="studentId"
+                          type="text"
+                          placeholder="{{item.studentId}}"
+                        />
+                        <div class="form-control-feedback"></div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="control-label" for="studentName"
+                          >Họ Tên</label
+                        ><input
+                          class="form-control col-md-9"
+                          id="studentName"
+                          name="studentName"
+                          type="text"
+                          placeholder="{{item.studentName}}"
+                        />
+                        <div class="form-control-feedback"></div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="control-label" for="dob">Ngày sinh</label
+                        ><input
+                          class="form-control col-md-9"
+                          id="dob"
+                          name="dob"
+                          type="text"
+                          placeholder="{{item.dob}}"
+                        />
+                        <div class="form-control-feedback"></div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="control-label" for="gender"> Giới tính </label> 
+                            ><input
+                              class="form-control col-md-9"
+                              id="gender"
+                              type="text"
+                              name="gender"
+                              placeholder="{{item.gender}}"
+                              
+                            />
+                        <div class="form-control-feedback"></div>
+                      </div>
+                           
+                        
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="control-label" for="course">Khóa</label
+                        ><input
+                          class="form-control col-md-9"
+                          id="course"
+                          name="course"
+                          type="text"
+                          placeholder="{{item.course}}"
+                    
+                        />
+                        <div class="form-control-feedback"></div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="control-label" for="department">Khoa</label
+                        ><input
+                          class="form-control col-md-9"
+                          id="department"
+                          name="department"
+                          type="text"
+                          placeholder="{{item.department}}"
+                        
+                        />
+                        <div class="form-control-feedback"></div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="control-label" for="studentClass">Lớp</label
+                        ><input
+                          class="form-control col-md-9"
+                          id="studentClass"
+                          name="studentClass"
+                          type="text"
+                          placeholder="{{item.studentClass}}"
+                        
+                        />
+                        <div class="form-control-feedback"></div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="control-label" for="email">Email</label
+                        ><input
+                          class="form-control col-md-9"
+                          id="email"
+                          name="email"
+                          type="email"
+                          placeholder="{{item.email}}"
+                        
+                        />
+                        <div class="form-control-feedback"></div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="control-label" for="nationalId"
+                          >CMND/CCCD</label
+                        ><input
+                          class="form-control col-md-9"
+                          id="nationalId"
+                          name="nationalId"
+                          type="text"
+                          placeholder="{{item.nationalId}}"
+                        />
+                        <div class="form-control-feedback"></div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="control-label" for="issuedDt"
+                          >Ngày Cấp</label
+                        ><input
+                          class="form-control col-md-9"
+                          id="issuedDt"
+                          name="issuedDt"
+                          type="text"
+                          placeholder="{{item.issuedDt}}"
+                        />
+                        <div class="form-control-feedback"></div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="control-label" for="issuedPlace"
+                          >Nơi Cấp</label
+                        ><input
+                          class="form-control col-md-9"
+                          id="issuedPlace"
+                          name="issuedPlace"
+                          placeholder="{{item.issuedPlace}}"
+                        />
+                       
+                        <div class="form-control-feedback"></div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="control-label" for="phone">Điện Thoại</label
+                        ><input
+                          class="form-control col-md-9"
+                          id="phone"
+                          name="phone"
+                          type="tel"
+                          placeholder="{{item.phone}}"
+                        />
+                        <div class="form-control-feedback"></div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="control-label" for="ethnic">Dân Tộc</label
+                        ><input
+                          class="form-control col-md-9"
+                          id="ethnic"
+                          name="ethnic"
+                          placeholder="{{item.ethnic}}"
+                        />
+                       
+                        <div class="form-control-feedback"></div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="control-label" for="religion"
+                          >Tôn Giáo</label
+                        ><input
+                          class="form-control col-md-9"
+                          id="religion"
+                          name="religion"
+                          placeholder="{{item.religion}}"
+                        />
+                        
+                        
+                        <div class="form-control-feedback"></div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="control-label"  for="Address" >Địa Chỉ Thường Trú</label
+                        ><textarea
+                          class="form-control col-md-9"
+                          id="street"
+                          name="street"
+                          rows="1"
+                          placeholder="{{item.Address}}"
+                        ></textarea>
+                  
+                        <div class="form-control-feedback"></div>
+                      </div>
+                    </div>
+                  </div>
+    
+                  <h4>Đăng ký Ký túc xá</h4>
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="dormId">Ký túc xá</label
+                        ><input
+                          class="form-control col-md-9"
+                          id="dormId"
+                          name="dormId"
+                          placeholder="{{item.dormId}}"
+                        />
+                        <div class="form-control-feedback"></div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+
+      </main>
+    </body>
+</html>
+{% endfor %}
+{% endblock %}

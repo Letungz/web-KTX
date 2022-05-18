@@ -1,0 +1,207 @@
+<html lang="en">
+  <head>
+    
+    <meta
+      name="description"
+      content="Trang web quản lý KTX trường Đại học kinh tế TPHCM"
+    />
+    <title>Thanh toán tiền phòng - UEH Admin</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Main CSS-->
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    
+   
+   
+    
+  
+  </head>
+  <body class="app sidebar-mini pace-done">
+          <h1><i class="fa fa-dollar"></i> Thanh toán tiền phòng</h1>
+          <p>Thanh toán theo từng sinh viên nội trú</p>
+        </div>
+        <ul class="app-breadcrumb breadcrumb side">
+          <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+          <li class="breadcrumb-item">Biểu mẫu</li>
+          <li class="breadcrumb-item active">
+            <a href="#">Thanh toán tiền phòng</a>
+          </li>
+        </ul>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="tile">
+            <div class="tile-body" id="tileBody">
+              <form class="row" id="searchForm">
+                <div class="form-group col-sm-9 col-md-4">
+                  <label> Tìm theo MSSV</label
+                  ><input
+                    class="form-control"
+                    id="residentId"
+                    name="residentId"
+                    type="text"
+                    placeholder="MSSV"
+                  />
+                </div>
+                <div class="form-group col-md-4 align-self-end">
+                  <button class="btn btn-primary" id="searchBtn" type="submit">
+                    <i class="fa fa-fw fa-lg fa-search"></i>Tìm kiếm
+                  </button>
+                </div>
+              </form>
+              <div class="table-responsive"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="paymentModal" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Thanh toán tiền phòng KTX</h4>
+              <button class="close" type="button" data-dismiss="modal">
+                ×
+              </button>
+            </div>
+            <div class="modal-body">
+              <form id="paymentForm">
+                <div class="form-group">
+                  <fieldset>
+                    <label class="control-label">Họ và Tên</label
+                    ><input
+                      class="form-control"
+                      id="studentName"
+                      name="studentName"
+                      type="text"
+                      readonly=""
+                    />
+                  </fieldset>
+                </div>
+                <div class="form-group">
+                  <fieldset>
+                    <label class="control-label">MSSV</label
+                    ><input
+                      class="form-control"
+                      id="resId"
+                      name="residentId"
+                      type="text"
+                      readonly=""
+                    />
+                  </fieldset>
+                </div>
+                <div class="form-group">
+                  <fieldset>
+                    <label class="control-label">Phòng</label
+                    ><input
+                      class="form-control"
+                      id="roomId"
+                      type="text"
+                      readonly=""
+                    />
+                  </fieldset>
+                </div>
+                <div class="form-group">
+                  <fieldset>
+                    <label class="control-label">Ký túc xá</label
+                    ><input
+                      class="form-control"
+                      id="dormId"
+                      type="text"
+                      readonly=""
+                    />
+                  </fieldset>
+                </div>
+                <div class="form-group">
+                  <fieldset>
+                    <label class="control-label" for="roomPrice"
+                      >Giá phòng</label
+                    >
+                    <div class="input-group">
+                      <input
+                        class="form-control"
+                        id="roomPrice"
+                        type="text"
+                        readonly=""
+                      />
+                      <div class="input-group-append">
+                        <span class="input-group-text">VND </span>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+                <div class="form-group">
+                  <fieldset>
+                    <label class="control-label" for="internetPrice"
+                      >Giá internet</label
+                    >
+                    <div class="input-group">
+                      <input
+                        class="form-control"
+                        id="internetPrice"
+                        type="text"
+                        readonly=""
+                      />
+                      <div class="input-group-append">
+                        <span class="input-group-text">VND</span>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+                <div class="form-group">
+                  <label for="monthsCount">Số tháng thanh toán</label
+                  ><select class="form-control" id="monthsCount">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <fieldset>
+                    <label for="totalAmount">Thành tiền</label>
+                    <div class="input-group">
+                      <input
+                        class="form-control"
+                        id="totalAmount"
+                        name="totalAmount"
+                        type="text"
+                        readonly=""
+                      />
+                      <div class="input-group-append">
+                        <span class="input-group-text">VND </span>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-primary" id="submitBtn" type="submit">
+                <i class="fa fa-fw fa-lg fa-check-circle"></i>Xác nhận</button
+              >&nbsp;&nbsp;&nbsp;<button
+                class="btn btn-secondary"
+                type="button"
+                data-dismiss="modal"
+              >
+                Đóng
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- Essential javascripts for application to work-->
+    
+    <!-- Page specific javascripts-->
+    
+  </body>
+</html>
